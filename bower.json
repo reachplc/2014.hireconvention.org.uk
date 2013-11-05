@@ -1,0 +1,21 @@
+{
+  "name": "2014.hireconvention.org.uk",
+  "version": "0.0.0",
+  "homepage": "http://hireconvention.org.uk/2014/",
+  "authors": [
+    "Trinity Mirror Creative"
+  ],
+  "description": "The aim of the website site is to; facilitate the free registration for the event, paid registration for an events dinner and to create leads for the sales rep to sell Partner Opportunities.",
+  "license": "n/a",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "possession": "https://github.com/michaelbragg/possession.git#be2f5b9a02e69b75706bcb8abbaa6dbb1ef1569d"
+  }
+}

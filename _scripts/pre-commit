@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# To setup the git pre-commit hook in the terminal type:
+# ln -s ../../_scripts/pre-commit .git/hooks/pre-commit
+
+git stash -q --keep-index
+grunt ci-test --verbose
+RESULT=$?
+git stash pop -q
+[ $RESULT -ne 0 ] && exit 1
+exit 0

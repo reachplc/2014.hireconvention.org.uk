@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    {{> prefetch }}
+    {{> meta }}
+
+    <title>{{ title }} &ndash; Hire Convention 2014</title>
+
+    {{> favicon }}
+    {{> css }}
+    {{> javascript_head }}
+
+  </head>
+
+  <body>
+
+    <a href="#content" class="visuallyhidden focusable" title="Skip to Site Content" accesskey="s">Skip to page content</a>
+
+    {{> navigation }}
+
+    <main class="wrapper" id="content" >
+
+        {{> body }}
+
+    </main><!--/ wrapper  -->
+
+    {{> javascript_body }}
+
+  </body>
+  </html>

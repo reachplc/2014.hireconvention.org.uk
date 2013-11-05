@@ -1,0 +1,33 @@
+{
+  "name": "hire-convention-2014",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Website for http://hireconvention.org.uk/2014/",
+  "keywords": [
+    "website",
+    "hire convention"
+  ],
+  "author": "Trinity Mirror Creative",
+  "contributors": [
+    {
+      "name": "Michael Bragg",
+      "email": "michael@michaelbragg.net"
+    }
+  ],
+  "license": "",
+  "scripts": {
+    "develop": "grunt",
+    "test": "grunt ci-test --verbose"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-contrib-watch": "0.5.x",
+    "assemble": "0.4.x",
+    "grunt-htmlhint": "0.4.x",
+    "grunt-contrib-jshint": "0.7.x",
+    "grunt-contrib-csslint": "0.1.x",
+    "grunt-express": "1.2.x",
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-less": "0.8.x"
+  }
+}

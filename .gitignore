@@ -1,0 +1,13 @@
+#  Assemble
+
+html/
+2014/
+
+#  NodeJS
+
+node_modules/
+npm-debug.log
+
+# Bower
+
+bower_components/
