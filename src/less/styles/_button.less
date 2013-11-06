@@ -1,0 +1,61 @@
+/*  styles/_button.less
+ *
+ */
+
+//  Primary Button
+
+.btn--primary {
+  background-color: @color--blue;
+  background-repeat: repeat-x;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.3)
+}
+  .btn--primary:link,
+  .btn--primary:visited,
+  .btn--primary:active,
+  input.btn--primary {
+    color: @color--white;
+  }
+
+  .btn--primary:hover,
+  .btn--primary:focus,
+  input.btn--primary:hover,
+  input.btn--primary:focus {
+    background-color: @color--purple;
+    background-position: 0 -1em;
+    -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+  }
+
+//  Secondary Button
+
+.btn--secondary {
+  background-color: @color--green;
+  background-repeat: repeat-x;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.3)
+}
+
+  .btn--secondary:link,
+  .btn--secondary:visited,
+  .btn--secondary:active,
+  input.btn--secondary {
+    color: @color--white;
+  }
+
+  .btn--secondary:hover,
+  .btn--secondary:focus,
+  input.btn--secondary:hover,
+  input.btn--secondary:focus {
+    background-color: @color--blue;
+    background-position: 0 -1em;
+    -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+  }
+
+  .btn__large:hover,
+  .btn__large:focus {
+    background-position: 0 -2em;
+  }
