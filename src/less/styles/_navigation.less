@@ -1,0 +1,39 @@
+/*  styles/_navigation.less
+ *
+ */
+
+.navigation {
+  background-color: @color--green;
+  /*background-image: -moz-linear-gradient(top, @brand--blue 0%, @brand--blue-dark 100%); /* FF3.6+ */
+  /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@brand--blue), color-stop(100%,@brand--blue-dark)); /* Chrome,Safari4+ */
+  /*background-image: -webkit-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* Chrome10+,Safari5.1+ */
+  /*background-image: -o-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* Opera 11.10+ */
+  /*background-image: -ms-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* IE10+ */
+  /*background-image: linear-gradient(to bottom, @brand--blue 0%,@brand--blue-dark 100%); /* W3C */
+  background-repeat: repeat-x;
+  text-align: right;
+  line-height: 3em;
+}
+
+.navigation__main > li > a {
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  background-color: @color--green;
+  /*background-image: -moz-linear-gradient(top, @brand--blue 0%, @brand--blue-dark 100%); /* FF3.6+ */
+  /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@brand--blue), color-stop(100%,@brand--blue-dark)); /* Chrome,Safari4+ */
+  /*background-image: -webkit-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* Chrome10+,Safari5.1+ */
+  /*background-image: -o-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* Opera 11.10+ */
+  /*background-image: -ms-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* IE10+ */
+  /*background-image: linear-gradient(to bottom, @brand--blue 0%,@brand--blue-dark 100%); /* W3C */
+  background-repeat: repeat-x;
+  color: @color--white;
+}
+  .navigation__main > li > a:hover,
+  .navigation__main > li > a:focus {
+    background-color: @color--blue;
+    background-position: 0 -15px;
+    -webkit-transition: background-position 0.1s linear;
+       -moz-transition: background-position 0.1s linear;
+         -o-transition: background-position 0.1s linear;
+            transition: background-position 0.1s linear;
+  }
