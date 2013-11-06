@@ -23,6 +23,14 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      dev: {
+        files: [
+          { expand: true, cwd: 'src/static/', src: ['**/*.{png,gif,jpg,jpeg}'], dest: 'html/static/' }
+        ]
+      }
+    },
+
     less: {
       dev: {
         options: {
@@ -36,7 +44,7 @@ module.exports = function(grunt) {
 
     watch: {
       files: ['src/**/*'],
-      tasks: ['clean', 'assemble', 'less'],
+      tasks: ['clean', 'assemble', 'copy:dev', 'less'],
       options: {
         livereload: true
       }
@@ -122,10 +130,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
 
   grunt.registerTask('default', 'serve');
-  grunt.registerTask('serve', ['clean', 'assemble', 'less', 'express', 'watch']);
+  grunt.registerTask('serve', ['clean', 'assemble', 'copy:dev', 'less:dev', 'express', 'watch']);
   grunt.registerTask('ci-test', ['htmlhint','csslint', 'jshint']);
 
 };
