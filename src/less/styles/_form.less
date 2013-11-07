@@ -1,0 +1,58 @@
+/*  styles/_form.less
+ *
+ */
+
+form {
+  margin-top: 3em;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea,
+select {
+  margin-bottom: 2em;
+}
+
+//  Future-proof for responsive site
+//@media screen and (min-width: 48.25em) {
+
+  input[type=text],
+  input[type=email],
+  input[type=url],
+  input[type=password],
+  textarea,
+  select {
+    width: 75%;
+  }
+
+//}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea {
+  padding: 0.5em;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+textarea:focus,
+select:focus {
+  outline: 0;
+  border-color: @color--blue;
+}
