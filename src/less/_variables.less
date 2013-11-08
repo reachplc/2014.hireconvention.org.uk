@@ -11,6 +11,28 @@
 @color--purple: rgb(172,69,154);
 
 //
+//  Custom Fonts
+//
+
+@font-face{
+  font-family: "FlyerW01-BlackCond";
+  //  This corrects the font being supplied as a font-weight: normal
+  //  by fonts.com when it is really a bold version.
+  font-weight: normal;
+}
+
+@font-face{
+  font-family:'Myriad W01 Bd';
+  //  This corrects the font being supplied as a font-weight: normal
+  //  by fonts.com when it is really a bold version.
+  font-weight: bold;
+}
+
+@font__heading: FlyerW01-BlackCond, 'Myriad Pro', 'Myriad Std', 'Myriad W01 Bd', arial, sans-serif;
+@font__body: 'Myriad Pro', 'Myriad Std', Myriad, 'Myriad W01 Regular' arial, sans-serif;
+@font__body--bold: 'Myriad Pro', 'Myriad Std', 'Myriad W01 Bd', arial, sans-serif;
+
+//
 //  Colors
 //
 
@@ -24,7 +46,7 @@
 
 @body__font-size: 100%;
 @body__line-height: 1.5em;
-@body__font-family: sans-serif;
+@body__font-family: @font__body;
 @body__color: rgb(51,51,51);
 
 @code__font-family: Menlo, Monaco, "Courier New", monospace;
@@ -59,21 +81,21 @@
 
 @h1--margin: 0 0 0.5em;
 @h1--font-size: 4em;
-@h1--font-family: @body__font-family;
-@h1--font-weight: bold;
-@h1--line-height: 1.333em;
-@h1--color: @color--primary;
+@h1--font-family: @font__heading;
+@h1--font-weight: normal;
+@h1--line-height: 1em;
+@h1--color: @color--green;
 
 @h2--margin: 0 0 0.6923em;
 @h2--font-size: 2.4761em;
-@h2--font-family: @body__font-family;
-@h2--font-weight: bold;
+@h2--font-family: @font__body;
+@h2--font-weight: normal;
 @h2--line-height: 1.1538em;
 @h2--color: @color--primary;
 
 @h3--margin: 0 0 0.7741em;
 @h3--font-size: 1.4761em;
-@h3--font-family: @body__font-family;
+@h3--font-family: @font__body--bold;
 @h3--font-weight: bold;
 @h3--line-height: 1.1612em;
 @h3--color: @color--primary;
