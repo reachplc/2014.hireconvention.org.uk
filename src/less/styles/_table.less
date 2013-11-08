@@ -2,6 +2,20 @@
  *
  */
 
+table {
+  margin-bottom: 4em;
+  border-bottom: 1px solid lighten(@color--black, 50%);
+}
+
+thead {
+  border-bottom: 1px solid lighten(@color--black, 50%);
+}
+
+th,
+td {
+  padding: 0.5em;
+}
+
 //  Exhibitors Table
 
 .table__exhibitors {
@@ -13,3 +27,17 @@
   display: table-header-group;
   text-align: left;
 }
+
+//  Agenda
+
+.table__agenda {
+
+}
+
+  .table__agenda tbody tr:nth-child(even) {
+    background: lighten(@color--black, 80%);
+  }
+
+  .table__agenda--time {
+   width: 100px;
+  }
