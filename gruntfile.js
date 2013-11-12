@@ -26,7 +26,8 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         files: [
-          { expand: true, cwd: 'src/static/', src: ['**/*.{png,gif,jpg,jpeg}'], dest: 'html/static/' }
+          { expand: true, cwd: 'src/static/gui', src: ['**/*.{png,gif,jpg,jpeg}'], dest: 'html/static/gui' },
+          { expand: true, cwd: 'src/static/js', src: ['**/*.js'], dest: 'html/static/js'}
         ]
       }
     },
