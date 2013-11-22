@@ -3,3 +3,93 @@ title: Registration
 ---
 
 <h1>Registration</h1>
+
+<section id="register_options">
+<label for="tickets">Choose your tickets:</label>
+<input type="radio" name="tickets" value="register_paypal" checked>&nbsp;Two Day Pass + Dinner: £45 (+Vat)
+<br>
+<input type="radio" name="tickets" value="register_standard">&nbsp;Two Day Pass: Free
+</section>
+
+<!--  Payment Form: Paypal  -->
+
+<form action="{{ paypal }}" method="post" target="_top" id="register_paypal">
+  <input type="hidden" name="cmd" value="_xclick">
+  <input type="hidden" name="business" value="{{ paypal_account }}">
+  <input type="hidden" name="lc" value="GB">
+  <input type="hidden" name="button_subtype" value="services">
+
+  <input type="hidden" name="no_note" value="0">
+  <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+
+  <input type="hidden" name="item_name" value="Two Day Pass + Dinner">
+  <input type="hidden" name="amount" value="45.00">
+  <input type="hidden" name="currency_code" value="GBP">
+
+  <input type="hidden" name="return" value="{{ url }}/registration/confirm/">
+  <input type="hidden" name="rm" value="2">
+
+  <input type="hidden" name="notify_url" value="{{ api }}/register/paypal/">
+
+  <label for="quantity">How many ticket would you like?</label>
+  <input type="number" name="quantity" value="1">
+
+  <label for="first_name">First Name:</label>
+  <input type="text" name="first_name" max="32">
+
+  <label for="last_name">Last Name:</label>
+  <input type="text" name="last_name" max="32">
+
+  <label for="email">Email:</label>
+  <input type="email" name="email" max="127">
+
+  <label for="address1">Address:</label>
+  <input type="text" name="address1" max="100">
+
+  <label for="zip">Post Code:</label>
+  <input type="text" name="zip" max="32">
+
+  <br>
+  <small><sup>*</sup>Required.</small>
+  <br /><br />
+
+  <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+  <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+
+</form>
+
+<!--  None Payment Form  -->
+
+<form action="{{ api }}/register/standard/" method="post" name="nomination" id="register_standard" class="hidden">
+
+  <input type="hidden" name="item_name" value="Two Day Pass">
+  <input type="hidden" name="mc_gross" value="0">
+
+  <label for="quantity">How many ticket would you like?</label>
+  <input type="number" name="quantity" value="1">
+
+  <label for="first_name">First Name:</label>
+  <input type="text" name="first_name" max="32">
+
+  <label for="last_name">Last Name:</label>
+  <input type="text" name="last_name" max="32">
+
+  <label for="receiver_email">Email:</label>
+  <input type="email" name="receiver_email" max="127">
+
+  <label for="contact_phone">Phone:</label>
+  <input type="text" name="contact_phone">
+
+  <label for="address1">Address:</label>
+  <input type="text" name="address1" max="100">
+
+  <label for="address_zip">Post Code:</label>
+  <input type="text" name="address_zip" max="32">
+  <br>
+  <small><sup>*</sup>Required.</small>
+  <br /><br />
+
+  <input name="submit" type="submit" class="btn btn--primary" id="submit" title="Submit" value="Register for the event">
+
+</form>
+
