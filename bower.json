@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "possession": "https://github.com/michaelbragg/possession.git#be2f5b9a02e69b75706bcb8abbaa6dbb1ef1569d"
+    "possession": "https://github.com/michaelbragg/possession.git#be2f5b9a02e69b75706bcb8abbaa6dbb1ef1569d",
+    "jquery": "jquery#1.10.2"
   }
 }
