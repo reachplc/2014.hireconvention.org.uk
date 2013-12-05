@@ -32,7 +32,11 @@ Visit the url [localhost:3000](http://localhost:3000/) to view the site.
 
 ### Deploy Build
 
-tbc
+```
+grunt deploy
+```
+
+Will output all the files to a 2014 fold. Just upload these to the server.
 
 ## Documentation
 
