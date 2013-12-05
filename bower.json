@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "possession": "https://github.com/michaelbragg/possession.git#be2f5b9a02e69b75706bcb8abbaa6dbb1ef1569d",
-    "jquery": "jquery#1.10.2"
+    "jquery": "jquery#1.10.2",
+    "html5shiv": "html5shiv#3.7.0"
   }
 }
