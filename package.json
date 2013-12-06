@@ -29,6 +29,8 @@
     "grunt-express": "1.2.x",
     "grunt-contrib-clean": "0.5.x",
     "grunt-contrib-less": "0.8.x",
-    "grunt-contrib-copy": "0.4.x"
+    "grunt-contrib-copy": "0.4.x",
+    "grunt-config": "0.1.x",
+    "grunt-contrib-imagemin": "~0.3.0"
   }
 }

@@ -4,48 +4,88 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    settings: grunt.file.readJSON('config.json'),
+
+    //  Setup config depending on environment
+
+    config: {
+      dev: {
+        options: {
+          variables: {
+            'dest': 'html/',
+            'url': 'http://localhost:3000',
+            'api': 'http://localhost/2014.hireconvention.org.uk',
+            'paypal': 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+          }
+        }
+      },
+      build: {
+        options: {
+          variables: {
+            'dest': '2014/',
+            'url': 'http://vhost14.yoursitepreview.net/www.hireconvention.org.uk/2014',
+            'api': 'http://vhost14.yoursitepreview.net/www.hireconvention.org.uk/2014/api',
+            'paypal': 'https://www.paypal.com/cgi-bin/webscr'
+          }
+        }
+      }
+    },
 
     assemble: {
       // Task-level options.
       options: {
         prettify: {indent: 2},
         flatten: true,
-        assets: 'static',
+        //  Sites URL
+        url: '<%= grunt.config.get("url") %>',
+        //  URL for API location
+        api: '<%= grunt.config.get("api") %>',
+        //  PayPal URL to submit data
+        paypal: '<%= grunt.config.get("paypal") %>',
+        //  PayPal account to recieve payment
+        paypal_account: '<%= settings.paypal_account %>',
+        static: '<%= grunt.config.get("url") %>/static',
+        gui: '<%= grunt.config.get("url") %>/static/gui',
+        media: '<%= grunt.config.get("url") %>/media',
         layout: 'src/templates/layouts/default.hbs',
         partials: 'src/templates/includes/*.hbs',
         data: 'src/data/*.{json,yml}'
       },
       // Templates to build into pages
-      pages: {
+      files: {
         files: [
-          { expand: true, cwd: 'src/templates/pages/', src: ['**/*.hbs'], dest: 'html/' }
+          { expand: true, cwd: 'src/templates/pages/', src: ['**/*.hbs'], dest: '<%= grunt.config.get("dest") %>' }
         ]
       }
     },
 
     copy: {
-      dev: {
+      dev:{
         files: [
-          { expand: true, cwd: 'src/static/gui', src: ['**/*.{png,gif,jpg,jpeg}'], dest: 'html/static/gui' },
-          { expand: true, cwd: 'src/static/js', src: ['**/*.js'], dest: 'html/static/js'}
+          { expand: true, cwd: 'src/static/js', src: ['**/*.js'], dest: '<%= grunt.config.get("dest") %>static/js'}
+        ]
+      },
+      bower: {
+        files: [
+          { expand: true, flatten: true, cwd: 'bower_components', src: ['jquery/jquery.min.js', 'html5shiv/dist/html5shiv.js'], dest: '<%= grunt.config.get("dest") %>static/js/lib'}
         ]
       }
     },
 
     less: {
+      options: {
+        paths: ['<%= grunt.config.get("dest") %>static/css']
+      },
       dev: {
-        options: {
-          paths: ['html/static/css']
-        },
         files: {
-          'html/static/css/global.css': ['src/less/global.less']
+          '<%= grunt.config.get("dest") %>static/css/global.css': ['src/less/global.less']
         }
       }
     },
 
     watch: {
       files: ['src/**/*'],
-      tasks: ['clean', 'assemble', 'copy:dev', 'less'],
+      tasks: ['config:dev', 'build'],
       options: {
         livereload: true
       }
@@ -62,26 +102,49 @@ module.exports = function(grunt) {
     },
 
     clean: {
-      dev: ['html']
+      files: ['<%= grunt.config.get("dest") %>']
     },
 
-    htmlhint: {
-      build: {
-        options: {
-          'tag-pair': true,
-          'tagname-lowercase': true,
-          'attr-lowercase': true,
-          'attr-value-double-quotes': true,
-          'doctype-first': true,
-          'spec-char-escape': true,
-          'id-unique': true,
-          'head-script-disabled': true,
-          'style-disabled': true,
-          'src-not-empty': true,
-          'img-alt-require': true
+  //  Optimise
+
+    imagemin: {
+      options: {
+        optimizationLevel: 3
+      },
+      dev: {
+        files: [{
+          expand: true,
+          cwd: 'src/static/gui',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: '<%= grunt.config.get("dest") %>static/gui'
         },
-        src: ['html/**/*.html']
+        {
+          expand: true,
+          cwd: 'src/static/media',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: '<%= grunt.config.get("dest") %>static/media'
+        }]
       }
+    },
+
+  //  Tests
+
+    htmlhint: {
+      options: {
+        'tag-pair': true,
+        'tagname-lowercase': true,
+        'attr-lowercase': true,
+        'attr-value-double-quotes': true,
+        'doctype-first': true,
+        'spec-char-escape': true,
+        'id-unique': true,
+        'head-script-disabled': true,
+        'style-disabled': true,
+        'src-not-empty': true,
+        'img-alt-require': true
+      },
+      src: ['<%= grunt.config.get("dest") %>**/*.html']
+
     },
 
     csslint: {
@@ -93,9 +156,7 @@ module.exports = function(grunt) {
         'universal-selector': false,
         'font-sizes': false  //  Until CSSLint has the option to set an ammount
       },
-      files: {
-        src: ['html/static/css/*.css']
-      }
+      src: ['<%= grunt.config.get("dest") %>static/css/*.css']
     },
 
     jshint: {
@@ -116,9 +177,7 @@ module.exports = function(grunt) {
           jQuery: true
         }
       },
-      files: {
-        src: ['gruntfile.js']
-      }
+      src: ['gruntfile.js', '<%= grunt.config.get("dest") %>static/js/*.js']
     }
 
   });
@@ -132,10 +191,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
-
+  grunt.loadNpmTasks('grunt-config');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   grunt.registerTask('default', 'serve');
-  grunt.registerTask('serve', ['clean', 'assemble', 'copy:dev', 'less:dev', 'express', 'watch']);
   grunt.registerTask('ci-test', ['htmlhint','csslint', 'jshint']);
+  grunt.registerTask('build', ['clean', 'assemble', 'copy', 'imagemin', 'less', 'ci-test']);
+  grunt.registerTask('serve', ['config:dev', 'build', 'express', 'watch']);
+  grunt.registerTask('deploy', ['config:build', 'build']);
 
 };
