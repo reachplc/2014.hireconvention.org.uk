@@ -4,11 +4,6 @@
 
 table {
   margin-bottom: 4em;
-  border-bottom: 1px solid lighten(@color--black, 50%);
-}
-
-thead {
-  border-bottom: 1px solid lighten(@color--black, 50%);
 }
 
 th,
@@ -31,13 +26,44 @@ td {
 //  Agenda
 
 .table__agenda {
-
+  border-collapse: separate;
+  border-spacing: 1px;
 }
 
   .table__agenda tbody tr:nth-child(even) {
-    background: lighten(@color--black, 80%);
+    //background: lighten(@color--black, 80%);
   }
 
   .table__agenda--time {
    width: 100px;
   }
+
+//  Agenda Styling
+
+.table__agenda--registration {
+  background: rgb(224,224,244);
+}
+
+.table__agenda--group {
+  background: rgb(248,217,57);
+  //color: @color--white;
+}
+
+.table__agenda--break {
+  background: @color--blue;
+  color: @color--white;
+}
+
+.table__agenda--workshop {
+  background: @color--green;
+  color: @color--white;
+}
+
+.table__agenda--evening {
+  background: @color--purple;
+  color: @color--white;
+}
+
+.table__agenda--close {
+  background: rgb(204,204,204);
+}
