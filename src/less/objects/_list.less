@@ -1,0 +1,29 @@
+/*  objects/_list.less
+ *
+ */
+
+//
+// 1. Removes bullets
+// 2. Removes default margin for ul
+// 3. Removes default padding
+//
+
+.list {
+  list-style:none;  // 1.
+  margin-top: 0;  // 2.
+  margin-bottom: 0;  // 2.
+  padding-left:0;  // 3.
+}
+
+  // List Inline
+
+  .list__inline > li,
+  .list__inline > li > a {
+    display: inline-block;
+  }
+
+  // List Block
+
+  .list__block > li {
+    display: block;
+  }

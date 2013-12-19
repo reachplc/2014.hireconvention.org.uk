@@ -1,4 +1,4 @@
-/*! --  global.css  |  Possession  v. 0.2.0  |  https://github.com/michaelbragg/possession/  |  Copyright (c) Michael Bragg - http://www.michaelbragg.net/ | Code licensed under the MIT License.  |  Last Updated: 26/08/13  --  */
+/* --  global.css  |  Possession  v. 0.2.0  |  https://github.com/michaelbragg/possession/  |  Copyright (c) Michael Bragg - http://www.michaelbragg.net/ | Code licensed under the MIT License.  |  Last Updated: 26/08/13  --  */
 
 //  Base
 
@@ -14,6 +14,7 @@
 //  Objects
 
 @import 'objects/_menu.less';
+@import 'objects/_list.less';
 @import 'objects/_block.less';
 @import 'objects/_button.less';
 
@@ -29,6 +30,7 @@
 @import 'styles/_form.less';
 @import 'styles/_table.less';
 @import 'styles/_button.less';
+@import 'styles/_badges.less';
 @import 'styles/_grid.less';
 
 //  Core
@@ -44,3 +46,10 @@
 main {
   display: block;
 }
+
+//  Add to `img` to make images responsive
+//  @TODO: Submit pull request to possession repo;
+.image_responsive  {
+  max-width: 100%;
+}
+

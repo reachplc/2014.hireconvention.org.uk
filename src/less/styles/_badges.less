@@ -1,0 +1,21 @@
+/*  styles/_badges.less
+ *    @extends objects/_list.less
+ */
+
+  .badges > li {
+    margin: 0 0 1em;
+    padding: 0 1em;
+    //  Controls how many we display in each row eg 25% = 4, 33.33% = 3
+    width: 33.333%;
+    //  Align the child element centrally
+    text-align: center;
+  }
+
+  //  Substitute the first number for the amount to display in each row
+  .badges > li:nth-child(3n+1) {
+    padding-left: 0;
+  }
+  //  Substitute the 1st/2nd number for the amount to display in each row
+  .badges > li:nth-child(3n+3) {
+    padding-right: 0;
+  }
