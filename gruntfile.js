@@ -23,8 +23,8 @@ module.exports = function(grunt) {
         options: {
           variables: {
             'dest': '2014/',
-            'url': 'http://vhost14.yoursitepreview.net/www.hireconvention.org.uk/2014',
-            'api': 'http://vhost14.yoursitepreview.net/www.hireconvention.org.uk/2014/api',
+            'url': 'http://www.hireconvention.org.uk/2014',
+            'api': 'http://www.hireconvention.org.uk/2014/api',
             'paypal': 'https://www.paypal.com/cgi-bin/webscr'
           }
         }
@@ -63,6 +63,11 @@ module.exports = function(grunt) {
       dev:{
         files: [
           { expand: true, cwd: 'src/static/js', src: ['**/*.js'], dest: '<%= grunt.config.get("dest") %>static/js'}
+        ]
+      },
+      media: {
+        files: [
+          { expand: true, cwd: 'src/media', src: ['**/*'], dest: '<%= grunt.config.get("dest") %>media'}
         ]
       },
       bower: {
