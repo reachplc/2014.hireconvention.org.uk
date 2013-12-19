@@ -53,3 +53,9 @@ main {
   max-width: 100%;
 }
 
+//  Fix issue in ie8 by resetting the max-width and supplying
+//  width in its place
+.lt-ie9 .image_responsive {
+  max-width: inherit;
+  width: 100%;
+}
