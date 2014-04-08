@@ -75,6 +75,12 @@ In lieu of a formal style guide, take care to maintain the existing coding style
 
 ## Contact
 
+[tmcreative@trinitymirror.com](mailto:tmcreative@trinitymirror.com)
+
+## License
+
+The source is opened for educational purposes. No rights are assigned to any downloads or forks.
+
 ## Copyright
 
-Unless otherwise stated &copy; Trinity Mirror Creative. All rights reserved.
+Unless otherwise stated all code and content remain copyright &copy; Trinity Mirror. All rights reserved.
